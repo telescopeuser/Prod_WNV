@@ -60,7 +60,7 @@ Used Leaderboard feedback: Two types of multipliers have been applied. AUC score
 
 **Dataset used:** train.csv, weather.csv, leaderboard
 
-### <font color='blue'>[Sam] In this exercise, we are to use all three datasets, train, weather, and spray.</font> 
+### <font color='blue'>[Sam] In this exercise, we are to use all three datasets: train, weather, and spray.</font> 
 
 # [2] Data pre-porcessing
 Explore and visualize data
@@ -1843,7 +1843,7 @@ plot_roc(KNeighborsClassifier(n_neighbors=11))
 ![png](ref/output_86_1.png)
 
 
-### Benchmark of Kaggle public leaderboard progress for top 2 teams
+### Benchmark of Kaggle progressive public leaderboard
 Using Kaggle's 30% of actual reserved test data, top 1 & 2 team started from AUC=0.7+, progressing to 0.88+. Leaderboard feedback is expected to have contributed to a few 'jumps'.
 
 <img align="left" src='./ref/LB-progress.png' width=100%>
@@ -1852,7 +1852,17 @@ Using Kaggle's 30% of actual reserved test data, top 1 & 2 team started from AUC
 
 ### <font color='blue'>Reflection</font> 
 
-The best model here, AdaBoostClassifier, used 6-fold cross validation to reach average AUC 0.88, based on test data split from training data. If using 'Kaggle's 30% of actual reserved test data', AUC is expected to drop, nevertheless, I think the initial performance can be reasonably good due to the AUC margin: 0.88 - 0.7 = 0.18.
+<img align="right" src='./ref/output_71_1.png' width=50%>
+
+* The best model here, AdaBoostClassifier, used 6-fold cross validation to reach average AUC 0.88, based on test data split from training data. If using 'Kaggle's 30% of actual reserved test data', AUC is expected to drop, nevertheless, I think the initial performance can be reasonably good due to the AUC margin: 0.88 - 0.7 = 0.18.
+
+* Regarding the AUC score in ROC chart, when FPR is at 0.1, TPR is estimated at 0.7. Thus the model can correctly predict 320 out of 457 cases, at the expense of 802 (= 0.1 * 8018) false positive cases. The correctness is about: 320/1122 = 28.52%, which is five times better than 'guess of majority' 5.39% (= 457/8475)
+
+|WnvPresent|Count|
+|:---:|:---:
+|0|8018
+|1|457
+|total|8475
 
 # [5] What more can be done?
 
@@ -2278,7 +2288,7 @@ print('KNN CV score: {0:.5f}'.format(cv.mean()))
 
 
 ### ROC
-<img align="left" src='./ref/ROC_curves.svg.png' width=50%>
+<img align="left" src='./ref/ROC_curves.svg.png' width=100%>
 
 ---
 
